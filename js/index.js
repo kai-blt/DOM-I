@@ -48,8 +48,6 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 let anchorArray = document.querySelectorAll('.container a');
 anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]); 
 
-anchorArray.forEach(item => item.style.color = '#13b004'); //Chance all nav links to green
-
 
 
 // Update cta area
@@ -90,3 +88,20 @@ Array.from(contact).forEach((item, index) => item.textContent = contactValues[in
 // Update Copyright
 let copyright = document.querySelector('footer p');
 copyright.textContent = siteContent["footer"]["copyright"];
+
+
+//Change all nav links to green
+anchorArray.forEach(item => item.style.color = '#13b004'); 
+
+//Add new items to nav
+let nav = document.querySelector('nav');
+
+function linkCreator(text) {
+  let newLink = document.createElement('a');
+  newLink.href = '#';
+  newLink.textContent = text;
+  newLink.style.color = '#87cefa'
+  return newLink;
+}
+nav.prepend(linkCreator('Prepend'));
+nav.appendChild(linkCreator('Append'));
