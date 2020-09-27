@@ -39,7 +39,10 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 let anchorArray = document.querySelectorAll('.container a');
 anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]);
+
+let ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
