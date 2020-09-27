@@ -65,22 +65,17 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
 
 
 // Update main-content
-let mainContentH4 = document.querySelectorAll('.main-content h4');
-mainContentH4[0].textContent = siteContent["main-content"]["features-h4"];
-mainContentH4[1].textContent = siteContent["main-content"]["about-h4"];
-mainContentH4[2].textContent = siteContent["main-content"]["services-h4"];
-mainContentH4[3].textContent = siteContent["main-content"]["product-h4"];
-mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
+let mainContentH4 = document.querySelectorAll('.main-content h4'); //Get all H4s in main-content section
+let mainContentKeys = Object.keys(siteContent["main-content"]); //Get all keys from main-content object
+let mainContentH4Values = mainContentKeys.filter(item => item.includes('h4')); //Get specifically the H4 keys
+mainContentH4.forEach((item, index) => item.textContent = siteContent["main-content"][mainContentH4Values[index]]); //For each H4 in the mainContentH4 arr change text to the values found in siteContent
 
 let middleImg = document.getElementById('middle-img');
 middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
 let mainContentP = document.querySelectorAll('.main-content p');
-mainContentP[0].textContent = siteContent["main-content"]["features-content"];
-mainContentP[1].textContent = siteContent["main-content"]["about-content"];
-mainContentP[2].textContent = siteContent["main-content"]["services-content"];
-mainContentP[3].textContent = siteContent["main-content"]["product-content"];
-mainContentP[4].textContent = siteContent["main-content"]["vision-content"];
+let mainContentPValues = mainContentKeys.filter(item => item.includes('content')); //Get specifically the H4 keys
+mainContentP.forEach((item, index) => item.textContent = siteContent["main-content"][mainContentPValues[index]]);
 
 
 // Update contact
