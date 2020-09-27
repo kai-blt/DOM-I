@@ -46,7 +46,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 // Update .container a tags
 let anchorArray = document.querySelectorAll('.container a');
-anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]);
+anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]); 
 
 
 
@@ -82,3 +82,10 @@ mainContentP.forEach((item, index) => item.textContent = siteContent["main-conte
 let contact = document.querySelector('.contact').children; //Get children of contact section (h4, p)
 let contactValues = Object.values(siteContent["contact"]);
 Array.from(contact).forEach((item, index) => item.textContent = contactValues[index]); //Set contact section items
+
+
+
+
+// Update Copyright
+let copyright = document.querySelector('footer p');
+copyright.textContent = siteContent["footer"]["copyright"];
