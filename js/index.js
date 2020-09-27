@@ -51,7 +51,7 @@ anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-it
 
 
 
-// Update cta-img
+// Update cta area
 let ctaH1 = document.querySelector(".cta h1");
 let h1Text = siteContent["cta"]["h1"];
 ctaH1.textContent = h1Text;
@@ -80,8 +80,5 @@ mainContentP.forEach((item, index) => item.textContent = siteContent["main-conte
 
 // Update contact
 let contact = document.querySelector('.contact').children; //Get children of contact section (h4, p)
-let contactArr = []; //Create new array to store values from json
-for (const [key, value] of Object.entries(siteContent["contact"])) { //Get values of the properties in contact section
-  contactArr.push(value);
-}
-Array.from(contact).forEach((item, index) => item.textContent = contactArr[index]); //Set contact section items
+let contactValues = Object.values(siteContent["contact"]);
+Array.from(contact).forEach((item, index) => item.textContent = contactValues[index]); //Set contact section items
