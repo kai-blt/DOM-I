@@ -72,9 +72,21 @@ mainContentH4[2].textContent = siteContent["main-content"]["services-h4"];
 mainContentH4[3].textContent = siteContent["main-content"]["product-h4"];
 mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
 
+let middleImg = document.getElementById('middle-img');
+middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
 let mainContentP = document.querySelectorAll('.main-content p');
 mainContentP[0].textContent = siteContent["main-content"]["features-content"];
 mainContentP[1].textContent = siteContent["main-content"]["about-content"];
 mainContentP[2].textContent = siteContent["main-content"]["services-content"];
 mainContentP[3].textContent = siteContent["main-content"]["product-content"];
 mainContentP[4].textContent = siteContent["main-content"]["vision-content"];
+
+
+// Update contact
+let contact = document.querySelector('.contact').children; //Get children of contact section (h4, p)
+let contactArr = []; //Create new array to store values from json
+for (const [key, value] of Object.entries(siteContent["contact"])) { //Get values of the properties in contact section
+  contactArr.push(value);
+}
+Array.from(contact).forEach((item, index) => item.textContent = contactArr[index]); //Set contact section items
