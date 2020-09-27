@@ -90,8 +90,12 @@ let copyright = document.querySelector('footer p');
 copyright.textContent = siteContent["footer"]["copyright"];
 
 
+
+
 //Change all nav links to green
 anchorArray.forEach(item => item.style.color = '#13b004'); 
+
+
 
 //Add new items to nav
 let nav = document.querySelector('nav');
@@ -105,3 +109,14 @@ function linkCreator(text) {
 }
 nav.prepend(linkCreator('Prepend'));
 nav.appendChild(linkCreator('Append'));
+
+//Create new button which makes the cta image rotate
+function buttonCreator(text) {
+  let newButton = document.createElement('button');
+  newButton.addEventListener('click', (event) => document.getElementById('cta-img').classList.toggle('rotate'));
+  newButton.textContent = text;
+  return newButton;
+}
+
+let ctaSection = document.querySelector('.cta-text');
+ctaSection.appendChild(buttonCreator('ROTATE IMAGE'));
