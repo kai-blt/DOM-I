@@ -48,6 +48,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 let anchorArray = document.querySelectorAll('.container a');
 anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]); 
 
+anchorArray.forEach(item => item.style.color = '#13b004'); //Chance all nav links to green
 
 
 
