@@ -41,8 +41,27 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
+
+
+
+// Update .container a tags
 let anchorArray = document.querySelectorAll('.container a');
 anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]);
 
+
+
+
+// Update cta-img
+let ctaH1 = document.querySelector(".cta h1");
+let h1Text = siteContent["cta"]["h1"];
+ctaH1.textContent = h1Text;
+
+let ctaButton = document.querySelector(".cta button");
+ctaButton.textContent = siteContent["cta"]["button"];
+
 let ctaImg = document.getElementById("cta-img");
 ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+
+
+// Update main-content
