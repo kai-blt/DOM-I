@@ -65,3 +65,16 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
 
 
 // Update main-content
+let mainContentH4 = document.querySelectorAll('.main-content h4');
+mainContentH4[0].textContent = siteContent["main-content"]["features-h4"];
+mainContentH4[1].textContent = siteContent["main-content"]["about-h4"];
+mainContentH4[2].textContent = siteContent["main-content"]["services-h4"];
+mainContentH4[3].textContent = siteContent["main-content"]["product-h4"];
+mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
+
+let mainContentP = document.querySelectorAll('.main-content p');
+mainContentP[0].textContent = siteContent["main-content"]["features-content"];
+mainContentP[1].textContent = siteContent["main-content"]["about-content"];
+mainContentP[2].textContent = siteContent["main-content"]["services-content"];
+mainContentP[3].textContent = siteContent["main-content"]["product-content"];
+mainContentP[4].textContent = siteContent["main-content"]["vision-content"];
