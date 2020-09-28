@@ -45,14 +45,11 @@ let startTimer = setInterval(() => {
        
         let currNanoSeconds = String(currTime);  //Sets the current nano seconds to a string       
         timerArray[4].textContent = currNanoSeconds.slice(currNanoSeconds.length - 1);    //Sets the nano seconds by slicing the string and setting the last digit        
+    } else {
+       timerArray.forEach(item => item.style.color = "red"); //Set timer digits to red once 10 seconds are reached.
     }    
 }, 10); //Sets timer to run every nano second.
 
-
-
-
-
-
-startMsHundreds();
+startTimer();
 
 
