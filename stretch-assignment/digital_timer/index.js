@@ -52,33 +52,50 @@ function startTimer() {
             let currNanoSeconds = String(currTime);  //Sets the current nano seconds to a string       
             timerArray[4].textContent = currNanoSeconds.slice(currNanoSeconds.length - 1);    //Sets the nano seconds by slicing the string and setting the last digit        
         } else {
-        timerArray.forEach(item => item.style.color = "red"); //Set timer digits to red once 10 seconds are reached.
+            timerArray.forEach(item => item.style.color = "red"); //Set timer digits to red once 10 seconds are reached.
         }
     }, 10);
 } 
 
 
+function resetTimer() {
+    timerArray[0].textContent = '-';
+    timerArray[1].textContent = '-';
+    timerArray[3].textContent = '-';
+    timerArray[4].textContent = '-';
+    currTime = 0;
+    secondTens = 0;
+    secondOnes = 0;
+    msHundreds = 0;
+    msTens = 0;
+    startButton.disabled = false;
+    startButton.textContent = 'START';
+    startButton.style.backgroundColor = 'green';
+}
 
-
-//Get Digits container
-let digitsContainer = document.querySelector('.digits');
 
 //Create button
-function createButton(text) {
+function createButton(text, color, callback) {
     let button = document.createElement('button');
     button.textContent = text;
-    button.style.backgroundColor = 'green';
+    button.style.backgroundColor = color;
     button.style.borderRadius = '10px';
     button.style.padding = '4%';
     button.style.fontSize = '2rem';
     button.style.color = 'white';
     button.style.margin = '10% 0'
 
-    button.addEventListener('click', startTimer);
+    button.addEventListener('click', callback);
     return button;
 }
 
-const startButton = createButton('START');
 
+
+//Create Buttons
+const startButton = createButton('START', 'green', startTimer);
+const resetButton = createButton('RESET', 'red', resetTimer);
+
+//Add buttons to DOM
+let digitsContainer = document.querySelector('.digits');
 digitsContainer.appendChild(startButton);
-
+digitsContainer.appendChild(resetButton);
