@@ -19,6 +19,7 @@ let msTens = 0;
 function startTimer() {
     startButton.style.backgroundColor = 'gray';
     startButton.textContent = 'Please Wait';
+    startButton.disabled = true;
     setInterval(() => {     
         if (currTime < 1000) { //Run function and stop once 10000ms has been reached. 
             currTime++;
