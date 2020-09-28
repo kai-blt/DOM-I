@@ -17,6 +17,8 @@ let msTens = 0;
 
 //Declare function that sets timer to run every nano second
 function startTimer() {
+    startButton.style.backgroundColor = 'gray';
+    startButton.textContent = 'Please Wait';
     setInterval(() => {     
         if (currTime < 1000) { //Run function and stop once 10000ms has been reached. 
             currTime++;
@@ -69,9 +71,13 @@ function createButton(text) {
     button.style.padding = '4%';
     button.style.fontSize = '2rem';
     button.style.color = 'white';
+    button.style.margin = '10% 0'
 
     button.addEventListener('click', startTimer);
     return button;
 }
 
-digitsContainer.appendChild(createButton('START'));
+const startButton = createButton('START');
+
+digitsContainer.appendChild(startButton);
+
