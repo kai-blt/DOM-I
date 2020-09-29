@@ -71,6 +71,7 @@ function resetTimer() {
     startButton.disabled = false;
     startButton.textContent = 'START';
     startButton.style.backgroundColor = 'green';
+    timerArray.forEach(item => item.style.color = '#000');
 }
 
 
@@ -95,7 +96,15 @@ function createButton(text, color, callback) {
 const startButton = createButton('START', 'green', startTimer);
 const resetButton = createButton('RESET', 'red', resetTimer);
 
-//Add buttons to DOM
-let digitsContainer = document.querySelector('.digits');
-digitsContainer.appendChild(startButton);
-digitsContainer.appendChild(resetButton);
+//Select Body
+let bodyContainer = document.querySelector('body');
+
+//Create button container
+let buttonContainer = document.createElement('div');
+buttonContainer.id = 'button-container';
+buttonContainer.style.padding = '10%';
+
+//Append button container and buttons to DOM
+document.querySelector('body').appendChild(buttonContainer);
+buttonContainer.appendChild(startButton);
+buttonContainer.appendChild(resetButton);
