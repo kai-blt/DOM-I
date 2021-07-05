@@ -131,6 +131,11 @@ header .logo {
     color: white;
 }
 
+.rotate {
+    transition: 2s ease;
+    transform: rotate(180deg);
+}
+
 /* Main Content Styles */
 
 .main-content {

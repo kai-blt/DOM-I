@@ -39,4 +39,84 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+
+
+
+// Update .container a tags
+let anchorArray = document.querySelectorAll('.container a');
+anchorArray.forEach((tag, index) => tag.textContent = siteContent["nav"]["nav-item-"+index]); 
+
+
+
+// Update cta area
+let ctaH1 = document.querySelector(".cta h1");
+let h1Text = siteContent["cta"]["h1"];
+ctaH1.textContent = h1Text;
+
+let ctaButton = document.querySelector(".cta button");
+ctaButton.textContent = siteContent["cta"]["button"];
+
+let ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+
+
+// Update main-content
+let mainContentH4 = document.querySelectorAll('.main-content h4'); //Get all H4s in main-content section
+let mainContentKeys = Object.keys(siteContent["main-content"]); //Get all keys from main-content object
+let mainContentH4Values = mainContentKeys.filter(item => item.includes('h4')); //Get specifically the H4 keys
+mainContentH4.forEach((item, index) => item.textContent = siteContent["main-content"][mainContentH4Values[index]]); //For each H4 in the mainContentH4 arr change text to the values found in siteContent
+
+let middleImg = document.getElementById('middle-img');
+middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+let mainContentP = document.querySelectorAll('.main-content p');
+let mainContentPValues = mainContentKeys.filter(item => item.includes('content')); //Get specifically the H4 keys
+mainContentP.forEach((item, index) => item.textContent = siteContent["main-content"][mainContentPValues[index]]);
+
+
+// Update contact
+let contact = document.querySelector('.contact').children; //Get children of contact section (h4, p)
+let contactValues = Object.values(siteContent["contact"]);
+Array.from(contact).forEach((item, index) => item.textContent = contactValues[index]); //Set contact section items
+
+
+
+
+// Update Copyright
+let copyright = document.querySelector('footer p');
+copyright.textContent = siteContent["footer"]["copyright"];
+
+
+
+
+//Change all nav links to green
+anchorArray.forEach(item => item.style.color = '#13b004'); 
+
+
+
+//Add new items to nav
+let nav = document.querySelector('nav');
+
+function linkCreator(text) {
+  let newLink = document.createElement('a');
+  newLink.href = '#';
+  newLink.textContent = text;
+  newLink.style.color = '#87cefa'
+  return newLink;
+}
+nav.prepend(linkCreator('Prepend'));
+nav.appendChild(linkCreator('Append'));
+
+//Create new button which makes the cta image rotate
+function buttonCreator(text) {
+  let newButton = document.createElement('button');
+  newButton.addEventListener('click', (event) => document.getElementById('cta-img').classList.toggle('rotate'));
+  newButton.textContent = text;
+  return newButton;
+}
+
+let ctaSection = document.querySelector('.cta-text');
+ctaSection.appendChild(buttonCreator('ROTATE IMAGE'));
